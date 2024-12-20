@@ -1,10 +1,14 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
+ENV DEBIAN_FRONTEND=noninteractive
 RUN \
   apt-get update && \
   apt-get -qqy --no-install-recommends install \
+    wget \
+    zip \
+    unzip \
     git \
     curl \
-    openjdk-8-jre && \
+    openjdk-11-jdk && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ARG user=jenkins
@@ -32,8 +36,8 @@ VOLUME /var/jenkins_home
 # or config file with your custom jenkins Docker image.
 RUN mkdir -p /usr/share/jenkins/ref/init.groovy.d
 
-ENV TINI_VERSION 0.14.0
-ENV TINI_SHA 6c41ec7d33e857d4779f14d9c74924cab0c7973485d2972419a3b7c7620ff5fd
+ENV TINI_VERSION 0.19.0
+ENV TINI_SHA c5b0666b4cb676901f90dfcb37106783c5fe2077b04590973b885950611b30ee
 
 # Use tini as subreaper in Docker container to adopt zombie processes 
 RUN curl -fsSL https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini-static-amd64 -o /bin/tini && chmod +x /bin/tini \
@@ -43,11 +47,10 @@ COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groov
 
 # jenkins version being bundled in this docker image
 ARG JENKINS_VERSION
-ENV JENKINS_VERSION ${JENKINS_VERSION:-2.60.3}
+ENV JENKINS_VERSION=2.479.2
 
 # jenkins.war checksum, download will be validated using it
-ARG JENKINS_SHA=2d71b8f87c8417f9303a73d52901a59678ee6c0eefcf7325efed6035ff39372a
-
+ARG JENKINS_SHA=177c2c033f0d3ae4148e601d0fdada60112d83f250521f3a0a0fd97cbb138dbd
 # Can be used to customize where jenkins.war get downloaded from
 ARG JENKINS_URL=https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/${JENKINS_VERSION}/jenkins-war-${JENKINS_VERSION}.war
 
@@ -69,7 +72,6 @@ EXPOSE ${agent_port}
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 
 USER ${user}
-
 COPY jenkins-support /usr/local/bin/jenkins-support
 COPY jenkins.sh /usr/local/bin/jenkins.sh
 ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
@@ -77,3 +79,10 @@ ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
 # from a derived Dockerfile, can use `RUN plugins.sh active.txt` to setup /usr/share/jenkins/ref/plugins from a support bundle
 COPY plugins.sh /usr/local/bin/plugins.sh
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
+
+
+# install plugins
+USER root
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
+USER ${user}
