@@ -6,7 +6,7 @@ analysis-model-api:11.2.0
 ansible:174.vfd5323d2b_9d8
 ansicolor:1.0.4
 ant:487.vd79d090d4ea_e
-antisamy-markup-formatter:159.v25b_c67cd35fb_
+antisamy-markup-formatter:162.v0e6ec0fcfcf6
 apache-httpcomponents-client-4-api:4.5.14-150.v7a_b_9d17134a_5
 apache-httpcomponents-client-5-api:5.2.1-1.1
 artifactory:3.18.10
@@ -63,7 +63,7 @@ code-coverage-api:4.6.0
 command-launcher:107.v773860566e2e
 commons-httpclient3-api:3.1-3
 commons-lang3-api:3.13.0-62.v7d18e55f51e2
-commons-text-api:1.10.0-68.v0d0b_c439292b_
+commons-text-api:1.11.0-95.v22a_d30ee5d36
 conditional-buildstep:1.4.3
 config-file-provider:953.v0432a_802e4d2
 configuration-as-code:1903.v004d55388f30
@@ -94,7 +94,7 @@ extended-choice-parameter:376.v2e02857547b_a_
 extended-read-permission:3.2
 external-monitor-job:215.v2e88e894db_f8
 favorite:2.4.3
-font-awesome-api:6.3.0-2
+font-awesome-api:6.5.1-3
 forensics-api:2.2.0
 gatling:1.3.0
 git-client:4.3.0
@@ -202,7 +202,7 @@ pipeline-stage-view:2.33
 pipeline-utility-steps:2.16.0
 plain-credentials:143.v1b_df8b_d3b_e48
 plot:2.1.12
-plugin-util-api:3.2.1
+plugin-util-api:4.1.0
 popper-api:1.16.1-3
 popper2-api:2.11.6-2
 powershell:2.1
@@ -253,7 +253,7 @@ view-job-filters:369.ve0513a_a_f5524
 warnings-ng:10.2.0
 windows-slaves:1.8.1
 workflow-aggregator:596.v8c21c963d92d
-workflow-api:1283.v99c10937efcb_
+workflow-api:1291.v51fd2a_625da_7
 workflow-basic-steps:1042.ve7b_140c4a_e0c
 workflow-cps-global-lib:609.vd95673f149b_b
 workflow-cps:3673.v5b_dd74276262
@@ -262,8 +262,8 @@ workflow-job:1326.ve643e00e9220
 workflow-multibranch:746.v05814d19c001
 workflow-remote-loader:1.6
 workflow-scm-step:408.v7d5b_135a_b_d49
-workflow-step-api:639.v6eca_cd8c04a_a_
-workflow-support:839.v35e2736cfd5c
+workflow-step-api:657.v03b_e8115821b_
+workflow-support:865.v43e78cc44e0d
 ws-cleanup:0.45
 xunit:3.1.3
 xvfb:1.2
