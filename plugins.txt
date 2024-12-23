@@ -36,7 +36,7 @@ blueocean-rest:1.27.5.1
 blueocean-web:1.27.5.1
 blueocean:1.27.5.1
 bootstrap4-api:4.6.0-6
-bootstrap5-api:5.2.3-1
+bootstrap5-api:5.3.3-1
 bouncycastle-api:2.29
 branch-api:2.1105.v472604208c55
 build-blocker-plugin:1.7.9
@@ -62,8 +62,8 @@ cobertura:1.17
 code-coverage-api:4.6.0
 command-launcher:107.v773860566e2e
 commons-httpclient3-api:3.1-3
-commons-lang3-api:3.13.0-62.v7d18e55f51e2
-commons-text-api:1.11.0-95.v22a_d30ee5d36
+commons-lang3-api:3.14.0-76.vda_5591261cfe
+commons-text-api:1.12.0-129.v99a_50df237f7
 conditional-buildstep:1.4.3
 config-file-provider:953.v0432a_802e4d2
 configuration-as-code:1903.v004d55388f30
@@ -94,7 +94,7 @@ extended-choice-parameter:376.v2e02857547b_a_
 extended-read-permission:3.2
 external-monitor-job:215.v2e88e894db_f8
 favorite:2.4.3
-font-awesome-api:6.5.1-3
+font-awesome-api:6.5.2-1
 forensics-api:2.2.0
 gatling:1.3.0
 git-client:4.3.0
@@ -124,7 +124,7 @@ ionicons-api:56.v1b_1c8c49374e
 ivy:2.5
 jackson2-api:2.15.2-350.v0c2f3f8fc595
 jacoco:3.3.4
-jakarta-activation-api:2.0.1-3
+jakarta-activation-api:2.1.3-1
 jakarta-mail-api:2.0.1-3
 javadoc:243.vb_b_503b_b_45537
 javax-activation-api:1.2.0-6
@@ -206,7 +206,7 @@ plugin-util-api:4.1.0
 popper-api:1.16.1-3
 popper2-api:2.11.6-2
 powershell:2.1
-prism-api:1.29.0-7
+prism-api:1.29.0-18
 prometheus:2.2.3
 publish-over-ssh:1.25
 publish-over:0.22
@@ -223,13 +223,13 @@ run-condition:1.5
 saferestart:0.7
 saml:4.418.vdfa_7489a_b_a_2d
 scm-api:676.v886669a_199a_a_
-script-security:1269.v639888f5e366
+script-security:1275.v23895f409fb_d
 scriptler:3.5
 shiningpanda:0.24
 skytap:2.07
 slack-uploader:1.7
 sloccount:1.27
-snakeyaml-api:2.2-111.vc6598e30cc65
+snakeyaml-api:2.3-123.v13484c65210a_
 sonar:2.15
 sse-gateway:1.26
 ssh-agent:333.v878b_53c89511
