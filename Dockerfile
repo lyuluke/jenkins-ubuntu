@@ -46,7 +46,6 @@ RUN curl -fsSL https://github.com/krallin/tini/releases/download/v${TINI_VERSION
 COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groovy
 
 # jenkins version being bundled in this docker image
-ARG JENKINS_VERSION
 ENV JENKINS_VERSION=2.479.2
 
 # jenkins.war checksum, download will be validated using it
@@ -62,6 +61,10 @@ RUN curl -fsSL ${JENKINS_URL} -o /usr/share/jenkins/jenkins.war \
 ENV JENKINS_UC https://updates.jenkins.io
 ENV JENKINS_UC_EXPERIMENTAL=https://updates.jenkins.io/experimental
 RUN chown -R ${user} "$JENKINS_HOME" /usr/share/jenkins/ref
+
+# Install jenkins-plugin-manager
+ENV JENKINS_PLUGIN_MANAGER_VERSION=2.13.2
+RUN curl -fsSL https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/${JENKINS_PLUGIN_MANAGER_VERSION}/jenkins-plugin-manager-${JENKINS_PLUGIN_MANAGER_VERSION}.jar -o /usr/local/bin/jenkins-plugin-manager.jar
 
 # for main web interface:
 EXPOSE ${http_port}
@@ -80,5 +83,5 @@ ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
 USER root
 RUN chmod +x /usr/local/bin/jenkins.sh
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
+RUN java -jar /usr/local/bin/jenkins-plugin-manager.jar --plugin-file /usr/share/jenkins/ref/plugins.txt
 USER ${user}
