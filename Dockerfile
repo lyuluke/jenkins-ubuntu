@@ -8,7 +8,7 @@ RUN \
     unzip \
     git \
     curl \
-    openjdk-11-jdk && \
+    openjdk-17-jdk && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ARG user=jenkins
