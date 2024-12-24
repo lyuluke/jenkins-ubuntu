@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN \
   apt-get update && \
@@ -80,8 +80,8 @@ COPY jenkins.sh /usr/local/bin/jenkins.sh
 ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
 
 # install plugins
-USER root
-RUN chmod +x /usr/local/bin/jenkins.sh
-COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-RUN java -jar /usr/local/bin/jenkins-plugin-manager.jar --plugin-file /usr/share/jenkins/ref/plugins.txt --latest
+#USER root
+#RUN chmod +x /usr/local/bin/jenkins.sh
+#COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+#RUN java -jar /usr/local/bin/jenkins-plugin-manager.jar --plugin-file /usr/share/jenkins/ref/plugins.txt --latest
 USER ${user}
