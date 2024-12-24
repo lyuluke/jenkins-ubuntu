@@ -41,5 +41,5 @@ jobs:
     
     - name: Build the Docker image
       run: |
-        docker build -t lyukun/ubuntu-jenkins:noplugins .
-        docker push lyukun/ubuntu-jenkins:noplugins
+        docker build -t lyukun/ubuntu-jenkins:lstplugins .
+        docker push lyukun/ubuntu-jenkins:lstplugins
