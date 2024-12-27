@@ -177,6 +177,7 @@ pam-auth:1.11
 parallel-test-executor:522.vfe4fd4a_3382a_
 parameterized-scheduler:277.v61a_4b_a_49a_c5c
 parameterized-trigger:806.vf6fff3e28c3e
+people-view:1.2
 percentage-du-node-column:0.1.0
 permissive-script-security:0.7
 pipeline-aws:1.45
